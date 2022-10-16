@@ -119,12 +119,12 @@ describe("order.js", function() {
     });
   }); 
 
-  describe.only("refundOrder", function() {
+  describe("refundOrder", function() {
     it("should be a function", function () {
       assert.isFunction(refundOrder);
     });
 
-    it.skip("should remove an order by order number", function() {
+    it("should remove an order by order number", function() {
       var order1 = {
         orderNumber: 1657,
         item: "burger",
@@ -157,7 +157,7 @@ describe("order.js", function() {
       assert.deepEqual(deliveryOrders, [order2, order3])
     });
 
-    it.skip("should remove a different order by order number", function () {
+    it("should remove a different order by order number", function () {
       var order1 = {
         orderNumber: 1241,
         item: "burger",
@@ -192,11 +192,11 @@ describe("order.js", function() {
   });
 
   describe("listOrders", function() {
-    it.skip("should be a function", function () {
+    it("should be a function", function () {
       assert.isFunction(listItems);
     });
 
-    it.skip("should list out all of the order items by name", function() {
+    it("should list out all of the order items by name", function() {
       var order1 = {
         orderNumber: 1,
         item: "burger",
@@ -227,7 +227,7 @@ describe("order.js", function() {
       assert.deepEqual(items, "burger, blt sandwich, rueben");
     });
 
-    it.skip("should list out different order items by name", function () {
+    it("should list out different order items by name", function () {
       var order1 = {
         orderNumber: 3,
         item: "grilled cheese",
@@ -254,21 +254,25 @@ describe("order.js", function() {
 
       var orders1 = [order1];
       var orders2 = [order2, order3];
+      
 
       var items1 = listItems(orders1);
       var items2 = listItems(orders2);
+      
 
       assert.deepEqual(items1, "grilled cheese");
-      assert.deepEqual(items2, "turkey and swiss, veggie burger");
+      assert.deepEqual(items2, "turkey and swiss, veggie burger")
+
+      ;
     });
   });
 
-  describe("searchOrder", function() {
-    it.skip("should be a function", function () {
+  describe.only("searchOrder", function() {
+    it("should be a function", function () {
       assert.isFunction(searchOrder);
     });
 
-    it.skip("should tell us if an order is in the list", function() {
+    it("should tell us if an order is in the list", function() {
       var order1 = {
         orderNumber: 1234,
         item: "burger",
@@ -292,7 +296,7 @@ describe("order.js", function() {
       assert.equal(searchOrder(deliveryOrders, "blt sandwich"), true);
     });
 
-    it.skip("should tell us if an order is in another list", function () {
+    it("should tell us if an order is in another list", function () {
       var order1 = {
         orderNumber: 6357,
         item: "mac and cheese",
