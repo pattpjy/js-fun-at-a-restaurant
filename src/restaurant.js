@@ -42,21 +42,31 @@ var pizzaRestaurant = createRestaurant("Sexy Pizza");
       addMenuItem(pizzaRestaurant, baconEggsPizza);
       addMenuItem(pizzaRestaurant, veggiePizza);
 
-
-
-
-
 function removeMenuItem(resNam,items,nMtype){
-    var type = nMtype
-    if ( items === resNam.menus[type][0].name ){
-      resNam.menus[type].splice(0,1);
-      return `No one is eating our ${items} - it has been removed from the ${nMtype} menu!`
-    } else {
-      return 'not match'
+  var type = nMtype
+  var removeIndex = -1
+  for ( var i = 0; i < resNam.menus[type].length; i++){
+    if (items === resNam.menus[type][i].name){
+      removeIndex = i
     }
   }
+  if (removeIndex === -1){
+    return `Sorry, we don't sell ${items}, try adding a new recipe!`
+  } else {
+    resNam.menus[type].splice(removeIndex,1);
+    return `No one is eating our ${items} - it has been removed from the ${nMtype} menu!`
+  }
+}
+
+    
+  //   if ( items === resNam.menus[type][0].name ){
+  //     resNam.menus[type].splice(0,1);
+  //     return `No one is eating our ${items} - it has been removed from the ${nMtype} menu!`
+  //   } else {
+  //     return 'not match'
+  //   }
+  // }
   
-console.log('try', pizzaRestaurant.menus.breakfast[0].name);
 
 module.exports = {
 createRestaurant, 

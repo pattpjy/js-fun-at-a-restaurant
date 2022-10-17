@@ -134,7 +134,7 @@ describe("restaurant.js", function() {
     });
   });
 
-  describe.only("removeMenuItem", function() {
+  describe("removeMenuItem", function() {
     it("should be a function", function () {
       assert.isFunction(removeMenuItem);
     });
